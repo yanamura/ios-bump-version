@@ -1,0 +1,12 @@
+name: "iOS Bump Version"
+description: "update iOS version and build number"
+inputs:
+  version:
+    description: "new version string"
+    required: false
+  build-number:
+    description: "new build number"
+    required: false
+runs:
+  using: "node12"
+  main: "index.js"

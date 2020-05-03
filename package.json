@@ -1,0 +1,8 @@
+{
+    "private": true,
+    "license": "MIT",
+    "dependencies": {
+        "@actions/core": "^1.2.4",
+        "shelljs": "^0.8.4"
+    }
+}
