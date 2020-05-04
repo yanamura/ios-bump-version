@@ -18,6 +18,8 @@ jobs:
         uses: ./
         id: update
         with:
-          project-path: test-project/Sample
+          version: 1.1.0
+        run:
+          working-directory: ./test-project/Sample
       - name: show
         run: git diff

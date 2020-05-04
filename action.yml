@@ -7,9 +7,6 @@ inputs:
   build-number:
     description: "new build number"
     required: false
-  project-path:
-    description: "Xcode Project path"
-    required: false
 runs:
   using: "node12"
   main: "dist/index.js"

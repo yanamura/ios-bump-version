@@ -3,18 +3,6 @@ const core = require('@actions/core');
 
 const version = core.getInput('version')
 const buildNumber = core.getInput('build-number')
-const path = core.getInput('project-path')
-
-if (path) {
-    const command = `cd ${path}`
-    console.log(command)
-    const result = shell.exec(command).code
-    if (result != 0) {
-        core.setFailed(`${command} fail with exit code: ${result}`)
-    }
-}
-
-shell.exec('echo $PWD').code
 
 if (version) {
     const command = `agvtool new-marketing-version ${version}`
