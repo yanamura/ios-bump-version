@@ -14,6 +14,8 @@ if (path) {
     }
 }
 
+shell.exec('echo $PWD').code
+
 if (version) {
     const command = `agvtool new-marketing-version ${version}`
     console.log(command)
