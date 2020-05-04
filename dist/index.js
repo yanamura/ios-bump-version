@@ -1215,7 +1215,7 @@ const buildNumber = core.getInput('build-number')
 const path = core.getInput('project-path')
 
 if (path) {
-    const command = `cd ${path}`
+    const command = `cd ./${path}`
     console.log(command)
     const result = shell.exec(command).code
     if (result != 0) {
@@ -1223,7 +1223,8 @@ if (path) {
     }
 }
 
-shell.exec('echo $PWD').code
+shell.exec('echo $PWD')
+shell.exec('pwd')
 
 if (version) {
     const command = `agvtool new-marketing-version ${version}`
