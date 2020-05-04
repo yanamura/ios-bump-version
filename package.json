@@ -1,8 +1,14 @@
 {
     "private": true,
     "license": "MIT",
+    "scripts": {
+        "build": "ncc build index.js"
+    },
     "dependencies": {
         "@actions/core": "^1.2.4",
         "shelljs": "^0.8.4"
+    },
+    "devDependencies": {
+        "@zeit/ncc": "^0.22.1"
     }
 }
