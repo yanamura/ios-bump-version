@@ -15,6 +15,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Update
+        uses: ./
         id: update
         with:
           project-path: test-project
