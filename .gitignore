@@ -1,1 +1,4 @@
 node_modules/**
+
+test-project/Sample/Sample.xcodeproj/project.xcworkspace/xcuserdata/**
+test-project/Sample/Sample.xcodeproj/xcuserdata/**
