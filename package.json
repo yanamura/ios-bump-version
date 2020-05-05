@@ -6,6 +6,7 @@
     },
     "dependencies": {
         "@actions/core": "^1.2.4",
+        "@actions/exec": "^1.0.4",
         "shelljs": "^0.8.4"
     },
     "devDependencies": {
