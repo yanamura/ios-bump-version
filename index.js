@@ -1,26 +1,13 @@
-const shell = require('shelljs')
 const core = require('@actions/core')
 const exec = require('@actions/exec')
 
 const version = core.getInput('version')
 const buildNumber = core.getInput('build-number')
-const path = core.getInput('project-path')
-
-if (path) {
-    const command = `cd ./${path}`
-    console.log(command)
-    await exec.exec(command)
-}
-
-shell.exec('echo $PWD')
-core.addPath(path)
-shell.exec('pwd')
-shell.exec('ls')
 
 if (version) {
     const command = `agvtool new-marketing-version ${version}`
     console.log(command)
-    const result = shell.exec(command).code
+    const result = exec.exec(command)
     if (result != 0) {
         core.setFailed(`${command} fail with exit code: ${result}`)
     }
@@ -29,14 +16,14 @@ if (version) {
 if (!buildNumber) {
     const command = `agvtool next-version -all`
     console.log(command)
-    const result = shell.exec(command).code
+    const result = exec.exec(command)
     if (result != 0) {
         core.setFailed(`${command} fail with exit code: ${result}`)
     }
 } else {
     const command = `agvtool next-version -all ${buildNumber}`
     console.log(command)
-    const result = shell.exec(command).code
+    const result = exec.exec(command)
     if (result != 0) {
         core.setFailed(`${command} fail with exit code: ${result}`)
     }
