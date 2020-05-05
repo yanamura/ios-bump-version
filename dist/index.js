@@ -974,19 +974,15 @@ if (version) {
 if (!buildNumber) {
     const command = `agvtool next-version -all`
     console.log(command)
-    let exitCode = 0
-    exitCode = exec.exec(command)
-    if (exitCode != 0) {
-        core.setFailed(`${command} fail with exit code: ${exitCode}`)
-    }
+    exec.exec(command).catch(err => {
+        core.setFailed(error.message)
+    })
 } else {
     const command = `agvtool next-version -all ${buildNumber}`
     console.log(command)
-    let exitCode = 0
-    exitCode = exec.exec(command)
-    if (exitCode != 0) {
-        core.setFailed(`${command} fail with exit code: ${exitCode}`)
-    }
+    exec.exec(command).catch(err => {
+        core.setFailed(error.message)
+    })
 }
 
 /***/ }),
