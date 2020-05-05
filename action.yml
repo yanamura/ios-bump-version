@@ -1,12 +1,15 @@
 name: "iOS Bump Version"
-description: "update iOS version and build number"
+description: "update Xcode Project version and build number"
 inputs:
   version:
     description: "new version string"
     required: false
   build-number:
-    description: "new build number"
+    description: "new build number. if not set, automatically increment"
     required: false
 runs:
   using: "node12"
   main: "dist/index.js"
+branding:
+  icon: "arrow-up"
+  color: "black"
