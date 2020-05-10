@@ -5,7 +5,7 @@ This action incremennt build and version number using [agvtool](https://develope
 # Usage
 
 ```yaml
-- uses: yanamura/ios-bump-version@v1.0.1
+- uses: yanamura/ios-bump-version@v1
   with:
     # version number
     # ex. 3.2.0
@@ -26,7 +26,7 @@ This action incremennt build and version number using [agvtool](https://develope
 - uses: actions/checkout@v2
   with:
     token: ${{ secrets.GITHUB_TOKENN }}
-- uses: yanamura/ios-bump-version@v1.0.1
+- uses: yanamura/ios-bump-version@v1
   with:
     version: 1.1.0
 - name: update
