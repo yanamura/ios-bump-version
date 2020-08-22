@@ -19,7 +19,7 @@ if (!buildNumber) {
         core.setFailed(error.message)
     })
 } else {
-    const command = `agvtool next-version -all ${buildNumber}`
+    const command = `agvtool new-version -all ${buildNumber}`
     console.log(command)
     exec.exec(command).catch(error => {
         core.setFailed(error.message)
