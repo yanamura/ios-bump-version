@@ -2,7 +2,7 @@
 
 This action incremennt build and version number using [agvtool](https://developer.apple.com/library/archive/qa/qa1827/_index.html).
 
-# Usage
+## Usage
 
 ```yaml
 - uses: yanamura/ios-bump-version@v1
@@ -20,8 +20,9 @@ This action incremennt build and version number using [agvtool](https://develope
 
 > Note: Set `Current Project Version` and `Versioning System` to `Apple Generic` on your Xcode Project Setting.
 
-# Senario
+## Senario
 
+### auto increment build number
 ```yaml
 - uses: actions/checkout@v2
   with:
@@ -29,6 +30,22 @@ This action incremennt build and version number using [agvtool](https://develope
 - uses: yanamura/ios-bump-version@v1
   with:
     version: 1.1.0
+- name: update
+  run: |
+    git add .
+    git commit -m "bump version"
+    git push origin HEAD
+```
+
+### specify build number using GITHUB_RUN_NUMBER
+```yaml
+- uses: actions/checkout@v2
+  with:
+    token: ${{ secrets.GITHUB_TOKENN }}
+- uses: yanamura/ios-bump-version@v1
+  with:
+    version: 1.1.0
+    build-number: ${{github.run_number}}
 - name: update
   run: |
     git add .
