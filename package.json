@@ -9,6 +9,6 @@
         "@actions/exec": "^1.0.4"
     },
     "devDependencies": {
-        "@zeit/ncc": "^0.22.1"
+        "@zeit/ncc": "^0.22.3"
     }
 }
