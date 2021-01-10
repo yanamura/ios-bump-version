@@ -7,6 +7,9 @@ inputs:
   build-number:
     description: "new build number. if not set, automatically increment"
     required: false
+  project-path:
+    description: "change project path"
+    required: false
 runs:
   using: "node12"
   main: "dist/index.js"
