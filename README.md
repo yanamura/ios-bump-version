@@ -37,7 +37,7 @@ This action incremennt build and version number using [agvtool](https://develope
     git push origin HEAD
 ```
 
-### specify build number using GITHUB_RUN_NUMBER
+### specify build number using GITHUB_RUN_NUMBER and project path
 ```yaml
 - uses: actions/checkout@v2
   with:
@@ -46,6 +46,7 @@ This action incremennt build and version number using [agvtool](https://develope
   with:
     version: 1.1.0
     build-number: ${{github.run_number}}
+    project-path: optionalProject.xcodeproj
 - name: update
   run: |
     git add .
