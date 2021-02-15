@@ -7,7 +7,7 @@ on:
     branches: [ master ]
 
 jobs:
-  build:
+  default:
 
     runs-on: macos-latest
 
@@ -19,5 +19,21 @@ jobs:
         id: update
         with:
           version: 1.1.0
+      - name: show
+        run: git diff
+
+  projectPath:
+    runs-on: macos-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Update
+        uses: ./
+        id: update
+        with:
+          version: 1.1.0
+          project-path: ./
+
       - name: show
         run: git diff
