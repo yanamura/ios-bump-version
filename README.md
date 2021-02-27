@@ -1,6 +1,6 @@
-# iOS-Bump-Versionn
+# iOS-Bump-Version
 
-This action incremennt build and version number using [agvtool](https://developer.apple.com/library/archive/qa/qa1827/_index.html).
+This action increment build and version number using [agvtool](https://developer.apple.com/library/archive/qa/qa1827/_index.html).
 
 ## Usage
 
@@ -46,7 +46,7 @@ This action incremennt build and version number using [agvtool](https://develope
   with:
     version: 1.1.0
     build-number: ${{github.run_number}}
-    project-path: optionalProject.xcodeproj
+    project-path: ios #Example for React Native project
 - name: update
   run: |
     git add .
