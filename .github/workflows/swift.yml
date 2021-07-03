@@ -37,3 +37,16 @@ jobs:
 
       - name: show
         run: git diff
+
+  versionPath:
+    runs-on: macos-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Update
+        uses: ./
+        id: update
+        with:
+          version-path: version.txt
+      - name: show
+        run: git diff
