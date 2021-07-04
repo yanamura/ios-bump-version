@@ -53,3 +53,18 @@ This action increment build and version number using [agvtool](https://developer
     git commit -m "bump version"
     git push origin HEAD
 ```
+
+### specify version from file
+```yaml
+- uses: actions/checkout@v2
+  with:
+    token: ${{ secrets.GITHUB_TOKENN }}
+- uses: yanamura/ios-bump-version@v1
+  with:
+    version-path: version.file
+- name: update
+  run: |
+    git add .
+    git commit -m "bump version"
+    git push origin HEAD
+```

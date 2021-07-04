@@ -4,6 +4,9 @@ inputs:
   version:
     description: "new version string"
     required: false
+  version-path:
+    description: "file path that new version string located "
+    required: false
   build-number:
     description: "new build number. if not set, automatically increment"
     required: false
