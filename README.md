@@ -26,7 +26,7 @@ This action increment build and version number using [agvtool](https://developer
 ```yaml
 - uses: actions/checkout@v2
   with:
-    token: ${{ secrets.GITHUB_TOKENN }}
+    token: ${{ secrets.GITHUB_TOKEN }}
 - uses: yanamura/ios-bump-version@v1
   with:
     version: 1.1.0
@@ -41,7 +41,7 @@ This action increment build and version number using [agvtool](https://developer
 ```yaml
 - uses: actions/checkout@v2
   with:
-    token: ${{ secrets.GITHUB_TOKENN }}
+    token: ${{ secrets.GITHUB_TOKEN }}
 - uses: yanamura/ios-bump-version@v1
   with:
     version: 1.1.0
@@ -58,7 +58,7 @@ This action increment build and version number using [agvtool](https://developer
 ```yaml
 - uses: actions/checkout@v2
   with:
-    token: ${{ secrets.GITHUB_TOKENN }}
+    token: ${{ secrets.GITHUB_TOKEN }}
 - uses: yanamura/ios-bump-version@v1
   with:
     version-path: version.file
