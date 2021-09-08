@@ -13,6 +13,11 @@ inputs:
   project-path:
     description: "change project path"
     required: false
+outputs:
+  version:
+    description: "new version string"
+  build-number:
+    description: "new build number"
 runs:
   using: "node12"
   main: "dist/index.js"
