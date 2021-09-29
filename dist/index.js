@@ -961,54 +961,55 @@ const core = __webpack_require__(470)
 const exec = __webpack_require__(986)
 const fs = __webpack_require__(747)
 
-let version = core.getInput('version')
-const buildNumber = core.getInput('build-number')
-const projectPath = core.getInput('project-path')
-const versionPath = core.getInput('version-path')
-
-function execCommand(command, options = {}) {
+async function execCommand(command, options = {}) {
+    const projectPath = core.getInput('project-path')
     options.cwd = projectPath
     return exec.exec(command, [], options)
 }
 
-if (versionPath) {
-    const content = fs.readFileSync(versionPath, 'utf8')
-    version = content.trim()
-}
+async function run() {
+    let version = core.getInput('version')
+    const buildNumber = core.getInput('build-number')
+    const versionPath = core.getInput('version-path')
 
-if (version) {
-    core.setOutput('version', version)
+    if (versionPath) {
+        const content = fs.readFileSync(versionPath, 'utf8')
+        version = content.trim()
+    }
 
-    const command = `agvtool new-marketing-version ${version}`
-    console.log(command)
-    execCommand(command).catch(error => {
-        core.setFailed(error.message)
-    })
-}
+    if (version) {
+        core.setOutput('version', version)
 
-if (!buildNumber) {
-    execCommand(`agvtool what-version -terse`, {
+        const command = `agvtool new-marketing-version ${version}`
+        console.log(command)
+        execCommand(command).catch(error => {
+            core.setFailed(error.message)
+        })
+    }
+
+    if (!buildNumber) {
+        const command = `agvtool next-version -all`
+        console.log(command)
+        await execCommand(command).catch(error => {
+            core.setFailed(error.message)
+        })
+    } else {
+        const command = `agvtool new-version -all ${buildNumber}`
+        console.log(command)
+        await execCommand(command).catch(error => {
+            core.setFailed(error.message)
+        })
+    }
+
+    await execCommand(`agvtool what-version -terse`, {
         listeners: { stdout: (data) => {
-            core.setOutput('build-number', +data + 1)
+            console.log(data)
+            core.setOutput('build-number', data.toString().trim())
         }}
     })
-
-    const command = `agvtool next-version -all`
-    console.log(command)
-    execCommand(command).catch(error => {
-        core.setFailed(error.message)
-    })
-} else {
-    core.setOutput('build-number', +buildNumber + 1)
-
-    const command = `agvtool new-version -all ${buildNumber}`
-    console.log(command)
-    execCommand(command).catch(error => {
-        core.setFailed(error.message)
-    })
 }
 
-
+run()
 
 /***/ }),
 
