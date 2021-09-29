@@ -2,7 +2,6 @@ name: Swift
 
 on:
   push:
-    branches: [ master ]
   pull_request:
     branches: [ master ]
 
@@ -50,3 +49,18 @@ jobs:
           version-path: version.txt
       - name: show
         run: git diff
+
+  output:
+    runs-on: macos-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Update
+        uses: ./
+        id: update
+        with:
+          version-path: version.txt
+      - name: show
+        run: |
+          echo "${{ steps.update.outputs.version }}"
+          echo "${{ steps.update.outputs.build-number }}"
