@@ -23,7 +23,7 @@ async function run() {
 
         const command = `agvtool new-marketing-version ${version}`
         console.log(command)
-        execCommand(command).catch(error => {
+        await execCommand(command).catch(error => {
             core.setFailed(error.message)
         })
     }
