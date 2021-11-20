@@ -22,6 +22,30 @@ This action increment build and version number using [agvtool](https://developer
 
 ## Senario
 
+### specify version by using Manual Workflow
+```yaml
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: new app version x.x.x.
+
+jobs:
+  versionup:
+    runs-on: macos-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: yanamura/ios-bump-version@v1
+      id: version
+      with:
+        version: ${{ github.event.inputs.version }}
+- name: update
+  run: |
+    git add .
+    git commit -m "bump version"
+    git push origin HEAD
+```
+
 ### auto increment build number
 ```yaml
 - uses: actions/checkout@v2
