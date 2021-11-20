@@ -36,7 +36,6 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - uses: yanamura/ios-bump-version@v1
-      id: version
       with:
         version: ${{ github.event.inputs.version }}
 - name: update
