@@ -985,6 +985,13 @@ async function run() {
         await execCommand(command).catch(error => {
             core.setFailed(error.message)
         })
+    } else {
+        await execCommand(`agvtool what-marketing-version -terse1`, {
+            listeners: { stdout: (data) => {
+                console.log(data)
+                core.setOutput('version', data.toString().trim())
+            }}
+        })
     }
 
     if (!buildNumber) {
