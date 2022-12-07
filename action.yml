@@ -19,7 +19,7 @@ outputs:
   build-number:
     description: "new build number"
 runs:
-  using: "node12"
+  using: "node16"
   main: "dist/index.js"
 branding:
   icon: "arrow-up"
