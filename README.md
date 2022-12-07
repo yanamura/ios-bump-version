@@ -34,7 +34,7 @@ jobs:
   versionup:
     runs-on: macos-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     - uses: yanamura/ios-bump-version@v1
       with:
         version: ${{ github.event.inputs.version }}
@@ -47,7 +47,7 @@ jobs:
 
 ### auto increment build number
 ```yaml
-- uses: actions/checkout@v2
+- uses: actions/checkout@v3
   with:
     token: ${{ secrets.GITHUB_TOKEN }}
 - uses: yanamura/ios-bump-version@v1
@@ -62,7 +62,7 @@ jobs:
 
 ### specify build number using GITHUB_RUN_NUMBER and project path
 ```yaml
-- uses: actions/checkout@v2
+- uses: actions/checkout@v3
   with:
     token: ${{ secrets.GITHUB_TOKEN }}
 - uses: yanamura/ios-bump-version@v1
@@ -79,7 +79,7 @@ jobs:
 
 ### specify version from file
 ```yaml
-- uses: actions/checkout@v2
+- uses: actions/checkout@v3
   with:
     token: ${{ secrets.GITHUB_TOKEN }}
 - uses: yanamura/ios-bump-version@v1
