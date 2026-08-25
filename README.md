@@ -1,3 +1,5 @@
+
+
 # iOS-Bump-Version
 
 This action increment build and version number using [agvtool](https://developer.apple.com/library/archive/qa/qa1827/_index.html).
@@ -19,6 +21,8 @@ This action increment build and version number using [agvtool](https://developer
 ```
 
 > Note: Set `Current Project Version` and `Versioning System` to `Apple Generic` on your Xcode Project Setting.
+
+The action outputs `version` and `build-number`.
 
 ## Senario
 
